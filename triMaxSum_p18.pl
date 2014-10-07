@@ -4,8 +4,8 @@ use Data::Dumper;
 
 my $dataFile = '/Users/rjphayes/Desktop/triData';
 my @matrix = genMatrix($dataFile);
-@matrix = reduce(1,@matrix);
-print Dumper(\@matrix);
+my $solution = reduce(($#matrix-1),@matrix);
+print $solution,"\n";
 
 sub genMatrix {
        open (DATA ,"<",$_[0]);
@@ -26,7 +26,11 @@ sub reduce {
 		$matrix[$rowNum][$i]+=max(($matrix[$rowNum+1][$i]),($matrix[$rowNum+1][$i+1]))
 	}
 	delete $matrix[$rowNum+1]; 
-	return @matrix;
+	if ($#matrix == 0){
+		return $matrix[0][0];
+	} else {
+		reduce(($rowNum-1),@matrix);
+	}
 }
 
 sub max {
