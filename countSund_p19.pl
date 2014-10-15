@@ -7,7 +7,7 @@ my $thirtyOne = Set::Light->new(qw/1 3 5 7 8 10/);
 $day   = 0;
 $month = 3;
 $year  = 1900;
-$counter = 0;
+$counter = 1;
 while ($year <= 2000){
 	if ($thirty->has($month)){
 		$day = ($day + 30)%7;
