@@ -1,0 +1,211 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7174,        202]
+NotebookOptionsPosition[      6743,        183]
+NotebookOutlinePosition[      7084,        198]
+CellTagsIndexPosition[      7041,        195]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"int", " ", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{"{", "int", "}"}], "}"}]}], ",", " ", 
+    RowBox[{
+    "list", " ", "of", " ", "doubles", " ", "of", " ", "divisor", " ", 
+     "pairs"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"divisorPairs", " ", "=", "\[IndentingNewLine]", 
+    RowBox[{"Function", "[", 
+     RowBox[{"n", ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"xs", " ", "=", 
+        RowBox[{"Divisors", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"DeleteDuplicates", "[", 
+        RowBox[{
+         RowBox[{"Transpose", "[", 
+          RowBox[{"{", 
+           RowBox[{"xs", ",", 
+            RowBox[{"Reverse", "[", "xs", "]"}]}], "}"}], "]"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Sort", "[", "#1", "]"}], "===", 
+           RowBox[{"Sort", "[", "#2", "]"}]}], "&"}]}], "]"}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.6280716769550247`*^9, 3.6280717428247924`*^9}, {
+   3.628071902248911*^9, 3.6280719449143515`*^9}, {3.6280719953272343`*^9, 
+   3.628072000511531*^9}, {3.6280720681393995`*^9, 3.628072076079853*^9}, {
+   3.628072150687121*^9, 3.62807215767152*^9}, {3.628072228841591*^9, 
+   3.6280722551940985`*^9}, {3.6280722865478916`*^9, 3.628072286921913*^9}, {
+   3.6280723328595405`*^9, 3.628072349474491*^9}, {3.62807239474608*^9, 
+   3.628072436962495*^9}, {3.628072527810691*^9, 3.628072584209917*^9}, 
+   3.6280762310535045`*^9, {3.6280953827811832`*^9, 3.628095383927249*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"[", 
+     RowBox[{
+      RowBox[{"{", "int", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"(", "int"}], "}"}]}], "]"}], "\[Rule]", 
+    RowBox[{
+    "Bool", " ", "helper", " ", "function", " ", "for", " ", "check"}]}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"spanning", "[", 
+      RowBox[{"xs_", ",", "ys_"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"xs", "~", "Join", "~", "ys"}], "//", "Sort"}], ")"}], " ", 
+      "\[Equal]", " ", 
+      RowBox[{"{", 
+       RowBox[{
+       "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",", 
+        "8", ",", "9"}], "}"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"[", 
+      RowBox[{"int", ",", 
+       RowBox[{"{", 
+        RowBox[{"int", ",", "int"}], "}"}]}], "]"}], " ", "\[Rule]", " ", 
+     RowBox[{
+      RowBox[{
+      "Bool", " ", "checks", " ", "if", " ", "a", " ", "product", " ", "n", 
+       " ", "and", " ", "a", " ", "given", " ", "integer", " ", "pair", " ", 
+       "double", " ", "ns", " ", "are", " ", "pandigit", " ", "1"}], "-", 
+      "9"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"check", " ", "=", "\[IndentingNewLine]", 
+     RowBox[{"Function", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"n", ",", "ns"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"xs", " ", "=", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"IntegerDigits", " ", "/@", "ns"}], "//", "Flatten"}], 
+          ")"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"ys", " ", "=", " ", 
+         RowBox[{"IntegerDigits", "[", "n", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"spanning", "[", 
+         RowBox[{"xs", ",", "ys"}], "]"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.6280741114042673`*^9, 3.6280741821053114`*^9}, {
+  3.6280742428437853`*^9, 3.6280742687232656`*^9}, {3.628074719812066*^9, 
+  3.62807477337913*^9}, {3.6280749285160036`*^9, 3.6280749321882133`*^9}, {
+  3.628076246963414*^9, 3.628076341103799*^9}, {3.62807640476644*^9, 
+  3.628076409432707*^9}, {3.628095301703546*^9, 3.6280955059752293`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "checks", " ", "if", " ", "a", " ", "number", " ", "is", " ", "a", " ", 
+     "pandigital", " ", "product", " ", "1"}], "-", "9"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"isPanProd", " ", "=", " ", 
+     RowBox[{"Function", "[", 
+      RowBox[{"n", ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"xss", " ", "=", " ", 
+         RowBox[{"divisorPairs", "[", "n", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"bs", " ", "=", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"check", "[", 
+              RowBox[{"n", ",", "#"}], "]"}], ")"}], "&"}], " ", "/@", " ", 
+           "xss"}], ")"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Fold", "[", 
+         RowBox[{"Or", ",", "False", ",", "bs"}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.6280946616249356`*^9, 3.6280947859330454`*^9}, {
+   3.6280949391018066`*^9, 3.6280949608610506`*^9}, 3.6280949984532013`*^9, {
+   3.6280950486290708`*^9, 3.6280950510852118`*^9}, {3.6280952004467545`*^9, 
+   3.628095261181228*^9}, {3.6280953152473207`*^9, 3.6280953159893627`*^9}, {
+   3.628095513077636*^9, 3.6280955348538814`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Cases", "[", 
+    RowBox[{
+     RowBox[{"FromDigits", " ", "/@", " ", 
+      RowBox[{"Permutations", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",",
+           "8", ",", "9"}], "}"}], ",", 
+        RowBox[{"{", "4", "}"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"n_", "/;", " ", 
+      RowBox[{"isPanProd", "[", "n", "]"}]}]}], "]"}], "//", "Total"}], " ", "//",
+   "Timing"}]], "Input",
+ CellChangeTimes->{{3.6280960612859917`*^9, 3.6280960729816604`*^9}, {
+  3.62809610776565*^9, 3.628096110125785*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.31200200000000000155608859131461940706`5.514757291228131", ",", 
+   "45228"}], "}"}]], "Output",
+ CellChangeTimes->{3.628096073904713*^9, 3.628096110930831*^9}]
+}, Open  ]]
+},
+WindowSize->{767, 873},
+WindowMargins->{{Automatic, 135}, {0, Automatic}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (July 1, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1610, 35, 132, "Input"],
+Cell[2171, 57, 2311, 60, 232, "Input"],
+Cell[4485, 119, 1350, 33, 152, "Input"],
+Cell[CellGroupData[{
+Cell[5860, 156, 659, 17, 52, "Input"],
+Cell[6522, 175, 205, 5, 31, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
